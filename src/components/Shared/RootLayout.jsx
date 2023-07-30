@@ -41,7 +41,7 @@ const RootLayout = () => {
           <div className="navbar__center">
             <h1>
               <Link to="/" className="logo">
-                MyCourses
+                Recipe Treats
               </Link>
             </h1>
             <div className="navbar__bars" onClick={handleOpen}>
@@ -71,6 +71,15 @@ const RootLayout = () => {
                   onClick={handleClose}
                 >
                   About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="submit"
+                  className={({ isActive }) => (isActive ? "active" : "link")}
+                  onClick={handleClose}
+                >
+                  Submit
                 </NavLink>
               </li>
 

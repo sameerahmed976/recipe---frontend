@@ -1,0 +1,36 @@
+.section {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.hero {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  &__title {
+    font-size: var(--font-size-h2);
+    color: var(--accent2);
+  }
+  &__subTitle {
+    font-size: var(--font-size-h3);
+  }
+  &__groupButtons {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__btn {
+    max-width: 200px;
+    margin: 0;
+  }
+  &__btn--highlight {
+    background-color: var(--bg1);
+    border: 2px solid var(--bg2);
+  }
+  &__image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

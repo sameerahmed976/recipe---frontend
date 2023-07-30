@@ -15,6 +15,7 @@ import Contact from "./components/Contact/Contact";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./components/Profile/Profile";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
+import Submit from "./components/Submit/Submit";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,14 @@ const router = createBrowserRouter(
         element={
           <ProtectedRoute>
             <UpdateProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="submit"
+        element={
+          <ProtectedRoute>
+            <Submit />
           </ProtectedRoute>
         }
       />
