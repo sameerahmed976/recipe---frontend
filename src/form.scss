@@ -1,0 +1,133 @@
+.login {
+  // z-index: 100;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+  // min-height: 100vh;
+  // background-color: rgba(245, 245, 245);
+  display: grid;
+  justify-content: center;
+  align-items: start;
+
+  &__container {
+    position: relative;
+    margin-top: 5rem;
+    max-width: 310px;
+    padding: 2rem;
+    box-shadow: 16px 24px 46px 0px rgba(0, 0, 0, 0.17);
+  }
+
+  &__heading {
+    font-size: var(--font-size-h3);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    color: var(--accent1);
+    letter-spacing: 1px;
+  }
+}
+
+.signup__container {
+  margin-top: 3rem;
+}
+
+.form {
+  &__control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  &__forget {
+    display: block;
+    text-align: center;
+    font-size: var(--font-size-h5);
+    color: var(--accent1);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: var(--transition-2);
+    &:hover {
+      color: blue;
+    }
+  }
+
+  &__btn {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  &__account {
+    font-size: var(--font-size-h6);
+    margin-top: 1.5rem;
+    display: block;
+    font-weight: bold;
+    color: var(--accent1);
+    transition: var(--transition-2);
+    &:hover {
+      color: blue;
+    }
+  }
+  &__link {
+    color: #000;
+    font-weight: bold;
+    &:hover {
+      color: blue;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 0.1rem;
+    font-size: var(--font-size-h1);
+    color: var(--accent1);
+    font-weight: bold;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: var(--transition-2);
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+input {
+  width: 100%;
+  max-width: 350px;
+  padding: 0.6rem 0rem;
+  border: none;
+  background-color: transparent;
+  font-size: var(--font-size-h5);
+  border-bottom: 1px solid #000;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus,
+input:active {
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid var(--accent1);
+  box-shadow: 0 1px 0 0 var(--accent1);
+}
+
+label {
+  position: absolute;
+  text-transform: capitalize;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  color: rgba(128, 128, 128, 0.8);
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  transform: translateY(-33px);
+}
+
+.update__heading {
+  font-size: var(--font-size-h4);
+}
