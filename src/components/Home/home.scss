@@ -1,12 +1,12 @@
 .section {
   width: 90vw;
   margin: 0 auto;
+  padding: 2rem 0;
 }
 
 .hero {
-  padding-top: 2rem;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   gap: 2rem;
   &__title {
     font-size: var(--font-size-h2);
@@ -19,6 +19,7 @@
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
   }
   &__btn {
@@ -32,5 +33,33 @@
   &__image {
     max-width: 300px;
     margin: 0 auto;
+  }
+}
+
+// recipes
+.recipes {
+  margin-bottom: 2rem;
+  &__variety {
+    padding-bottom: 1rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  &__card {
+    box-shadow: var(--box-shadow-1);
+    padding: 0.4rem;
+  }
+  &__image {
+    width: 100%;
+  }
+  &__title {
+    padding: 0.6rem;
+    font-size: var(--font-size-h3);
+    text-shadow: 2px 1px 1px var(--bg2);
+    letter-spacing: 1px;
   }
 }

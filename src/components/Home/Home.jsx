@@ -1,3 +1,5 @@
+import { recipesVariety } from "../../data/data";
+
 const Home = () => {
   return (
     <>
@@ -27,19 +29,24 @@ const Home = () => {
           </section>
         </section>
 
+        {/* recipes */}
         <section className="section recipes">
           <h2 className="recipes__variety">Recipes Variety</h2>
 
           <section className="recipes__container">
-            <article className="recipes__card">
-              <img
-                src="/public/thai-food.jpg"
-                alt="recipes of Thai"
-                className="recipes__image"
-              />
+            {recipesVariety.map((item, index) => {
+              return (
+                <article className="recipes__card" key={index}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="recipes__image"
+                  />
 
-              <p className="recipes__title">Thai</p>
-            </article>
+                  <p className="recipes__title">{item.title}</p>
+                </article>
+              );
+            })}
           </section>
         </section>
       </main>
