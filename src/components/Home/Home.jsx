@@ -1,6 +1,19 @@
 import { recipesVariety } from "../../data/data";
+import { useGetAllRecipesQuery } from "../../redux/services/recipeService";
 
 const Home = () => {
+  const { data, error, isLoading } = useGetAllRecipesQuery();
+  console.log(data);
+  // const { category, food, randomRecipes } = data;
+
+  if (isLoading) {
+    return (
+      <main>
+        <h1 className="loading">Loading...</h1>
+      </main>
+    );
+  }
+
   return (
     <>
       <main className="home">
@@ -44,6 +57,27 @@ const Home = () => {
                   />
 
                   <p className="recipes__title">{item.title}</p>
+                </article>
+              );
+            })}
+          </section>
+        </section>
+
+        {/* Latest  recipes */}
+        <section className="section recipes">
+          <h2 className="recipes__variety">Latest Recipes</h2>
+
+          <section className="recipes__container">
+            {data.food.latest.map((item, index) => {
+              return (
+                <article className="recipes__card" key={index}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="recipes__image"
+                  />
+
+                  <p className="recipes__title">{item.name}</p>
                 </article>
               );
             })}
