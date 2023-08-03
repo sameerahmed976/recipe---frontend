@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./components/Profile/Profile";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import Submit from "./components/Submit/Submit";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,7 +54,7 @@ const router = createBrowserRouter(
           </ProtectedRoute>
         }
       />
-
+      <Route path="recipe/:id" element={<SingleProduct />} />
       <Route path="contact" element={<Contact />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />

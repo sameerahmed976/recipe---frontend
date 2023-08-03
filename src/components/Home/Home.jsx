@@ -1,8 +1,8 @@
-import { recipesVariety } from "../../data/data";
+import { Link } from "react-router-dom";
 import { useGetAllRecipesQuery } from "../../redux/services/recipeService";
 
 const Home = () => {
-  const { data, error, isLoading } = useGetAllRecipesQuery();
+  const { data, isLoading } = useGetAllRecipesQuery();
   console.log(data);
   // const { category, food, randomRecipes } = data;
 
@@ -47,16 +47,18 @@ const Home = () => {
           <h2 className="recipes__variety">Recipes Variety</h2>
 
           <section className="recipes__container">
-            {recipesVariety.map((item, index) => {
+            {data.categories.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="recipes__image"
-                  />
+                  <Link to={`recipe/${item._id}`}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="recipes__image"
+                    />
 
-                  <p className="recipes__title">{item.title}</p>
+                    <p className="recipes__title">{item.name}</p>
+                  </Link>
                 </article>
               );
             })}
@@ -83,7 +85,100 @@ const Home = () => {
             })}
           </section>
         </section>
+
+        {/* Thai  recipes */}
+        <section className="section recipes">
+          <h2 className="recipes__variety">Thai Recipes</h2>
+
+          <section className="recipes__container">
+            {data.food.thai.map((item, index) => {
+              return (
+                <article className="recipes__card" key={index}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="recipes__image"
+                  />
+
+                  <p className="recipes__title">{item.name}</p>
+                </article>
+              );
+            })}
+          </section>
+        </section>
+
+        {/* American  recipes */}
+        <section className="section recipes">
+          <h2 className="recipes__variety">American Recipes</h2>
+
+          <section className="recipes__container">
+            {data.food.american.map((item, index) => {
+              return (
+                <article className="recipes__card" key={index}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="recipes__image"
+                  />
+
+                  <p className="recipes__title">{item.name}</p>
+                </article>
+              );
+            })}
+          </section>
+        </section>
+
+        {/* chinese  recipes */}
+        <section className="section recipes">
+          <h2 className="recipes__variety">Chinese Recipes</h2>
+
+          <section className="recipes__container">
+            {data.food.chinese.map((item, index) => {
+              return (
+                <article className="recipes__card" key={index}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="recipes__image"
+                  />
+
+                  <p className="recipes__title">{item.name}</p>
+                </article>
+              );
+            })}
+          </section>
+        </section>
+        {/* public recipes */}
+        <section className="section recipes">
+          <img
+            src="/publish-recipe.png"
+            alt="public recipe"
+            className="public__recipe"
+          />
+          <h2 className="public__title">Publish your Recipe for FREE today</h2>
+          <p className="public__subTitle">
+            Publish your recipe in front of thousand of people for free .
+          </p>
+          <button className="btn public__btn">Submit Recipe</button>
+        </section>
       </main>
+
+      <footer className="footer">
+        <section className="footer__container">
+          <p className="footer__text">
+            &copy; {new Date().getFullYear()} of Recipe Treats. All rights
+            reversed by us. Designed by
+            <a
+              href="https://portfolio-sameer.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__name"
+            >
+              sameer
+            </a>
+          </p>
+        </section>
+      </footer>
     </>
   );
 };

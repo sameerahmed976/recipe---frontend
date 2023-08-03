@@ -1,25 +1,20 @@
-// import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//   data: "",
-// };
+const initialState = {
+  data: "",
+};
 
-// const recipeSlice = createSlice({
-//   name: "recipeSlice",
-//   initialState,
-//   reducers: {
-//     getUser: (state, action) => {
-//       // console.log(action);
-//       return { ...state, user: action.payload, isLoggedIn: true };
-//     },
-//     getLogout: (state, action) => {
-//       // console.log(action);
+const recipeSlice = createSlice({
+  name: "recipeSlice",
+  initialState,
+  reducers: {
+    setId: (state, action) => {
+      // console.log(action);
+      return { ...state, user: action.payload, isLoggedIn: true };
+    },
+  },
+});
 
-//       return { ...state, user: action.payload, isLoggedIn: false };
-//     },
-//   },
-// });
+export default recipeSlice.reducer;
 
-// export default authSlice.reducer;
-
-// export const { getLogout, getUser } = authSlice.actions;
+export const { setId } = recipeSlice.actions;

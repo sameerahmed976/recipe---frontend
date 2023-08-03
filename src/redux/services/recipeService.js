@@ -50,7 +50,14 @@ export const recipeApi = createApi({
 
     getAllRecipes: builder.query({
       query: () => ({
-        url: "/allRecipes",
+        url: "/recipes/allRecipes",
+        method: "GET",
+        credentials: "include",
+      }),
+    }),
+    getSingleRecipe: builder.query({
+      query: (id) => ({
+        url: `/recipes/${id}`,
         method: "GET",
         credentials: "include",
       }),
@@ -58,4 +65,4 @@ export const recipeApi = createApi({
   }),
 });
 
-export const { useGetAllRecipesQuery } = recipeApi;
+export const { useGetAllRecipesQuery, useGetSingleRecipeQuery } = recipeApi;
