@@ -64,15 +64,7 @@ const RootLayout = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="about"
-                  className={({ isActive }) => (isActive ? "active" : "link")}
-                  onClick={handleClose}
-                >
-                  About
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink
                   to="submit"

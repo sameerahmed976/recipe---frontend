@@ -94,7 +94,7 @@
   }
 }
 
-input {
+.input {
   width: 100%;
   max-width: 350px;
   padding: 0.6rem 0rem;
@@ -105,15 +105,15 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
-input:focus,
-input:active {
+.input:focus,
+.input:active {
   background-color: transparent;
   outline: none;
   border-bottom: 1px solid var(--accent1);
   box-shadow: 0 1px 0 0 var(--accent1);
 }
 
-label {
+.label {
   position: absolute;
   text-transform: capitalize;
   height: 100%;
@@ -123,8 +123,8 @@ label {
   color: rgba(128, 128, 128, 0.8);
 }
 
-input:focus + label,
-input:not(:placeholder-shown) + label {
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
   transform: translateY(-33px);
 }
 

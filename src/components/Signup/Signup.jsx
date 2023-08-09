@@ -56,11 +56,14 @@ const Signup = () => {
                 type="text"
                 name="name"
                 id="name"
+                className="input"
                 placeholder="  "
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <label htmlFor="name">name</label>
+              <label htmlFor="name" className="label">
+                name
+              </label>
             </div>
             <div className="form__control">
               <input
@@ -70,8 +73,11 @@ const Signup = () => {
                 placeholder="  "
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="input"
               />
-              <label htmlFor="email">email</label>
+              <label htmlFor="email" className="label">
+                email
+              </label>
             </div>
             <div className="form__control">
               <input
@@ -79,21 +85,27 @@ const Signup = () => {
                 name="password"
                 id="password"
                 placeholder="  "
+                className="input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label htmlFor="password">password</label>
+              <label htmlFor="password" className="label">
+                password
+              </label>
             </div>
             <div className="form__control">
               <input
                 type="password"
+                className="input"
                 name="confirm__password"
                 id="confirm__password"
                 placeholder="  "
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <label htmlFor="confirm__password">confirm password</label>
+              <label htmlFor="confirm__password" className="label">
+                confirm password
+              </label>
             </div>
 
             <button type="submit" className="btn form__btn">

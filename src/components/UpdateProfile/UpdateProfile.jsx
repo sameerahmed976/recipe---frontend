@@ -72,13 +72,17 @@ const UpdateProfile = () => {
                 name="name"
                 id="name"
                 placeholder="  "
+                className="input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <label htmlFor="name">name</label>
+              <label htmlFor="name" className="label">
+                name
+              </label>
             </div>
             <div className="form__control">
               <input
+                className="input"
                 type="text"
                 name="email"
                 id="email"
@@ -86,18 +90,23 @@ const UpdateProfile = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label htmlFor="email">email</label>
+              <label htmlFor="email" className="label">
+                email
+              </label>
             </div>
             <div className="form__control">
               <input
                 type="password"
                 name="password"
                 id="password"
+                className="input"
                 placeholder="  "
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label htmlFor="password">password</label>
+              <label htmlFor="password" className="label">
+                password
+              </label>
             </div>
             <div className="form__control">
               <input
@@ -105,10 +114,13 @@ const UpdateProfile = () => {
                 name="confirm__password"
                 id="confirm__password"
                 placeholder="  "
+                className="input"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <label htmlFor="confirm__password">confirm password</label>
+              <label htmlFor="confirm__password" className="label">
+                confirm password
+              </label>
             </div>
 
             <button type="submit" className="btn form__btn">

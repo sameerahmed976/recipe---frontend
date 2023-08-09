@@ -312,3 +312,17 @@ p {
 /* ===================  login  end  =========================== */
 
 @import "./components/Home/home.scss";
+@import "./components/SingleProduct/singleProduct.scss";
+@import "./components/Form/submitForm.scss";
+
+.icon {
+  display: none;
+}
+
+@import "./components/Contact/contact.scss";
+
+@media (min-width: 600px) {
+  .icon {
+    display: block;
+  }
+}

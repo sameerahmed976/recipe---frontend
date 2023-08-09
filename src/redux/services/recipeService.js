@@ -62,7 +62,19 @@ export const recipeApi = createApi({
         credentials: "include",
       }),
     }),
+    postARecipe: builder.mutation({
+      query: (data) => ({
+        url: "/recipes/allRecipes",
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllRecipesQuery, useGetSingleRecipeQuery } = recipeApi;
+export const {
+  useGetAllRecipesQuery,
+  useGetSingleRecipeQuery,
+  usePostARecipeMutation,
+} = recipeApi;

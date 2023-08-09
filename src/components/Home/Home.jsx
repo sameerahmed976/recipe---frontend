@@ -43,7 +43,7 @@ const Home = () => {
         </section>
 
         {/* recipes */}
-        <section className="section recipes">
+        {/* <section className="section recipes">
           <h2 className="recipes__variety">Recipes Variety</h2>
 
           <section className="recipes__container">
@@ -63,7 +63,7 @@ const Home = () => {
               );
             })}
           </section>
-        </section>
+        </section> */}
 
         {/* Latest  recipes */}
         <section className="section recipes">
@@ -73,13 +73,15 @@ const Home = () => {
             {data.food.latest.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="recipes__image"
-                  />
+                  <Link to={`recipe/${item._id}`} className="recipes__link">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="recipes__image"
+                    />
 
-                  <p className="recipes__title">{item.name}</p>
+                    <p className="recipes__title">{item.name}</p>
+                  </Link>
                 </article>
               );
             })}
@@ -94,13 +96,15 @@ const Home = () => {
             {data.food.thai.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="recipes__image"
-                  />
+                  <Link to={`recipe/${item._id}`} className="recipes__link">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="recipes__image"
+                    />
 
-                  <p className="recipes__title">{item.name}</p>
+                    <p className="recipes__title">{item.name}</p>
+                  </Link>
                 </article>
               );
             })}
@@ -115,13 +119,15 @@ const Home = () => {
             {data.food.american.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="recipes__image"
-                  />
+                  <Link to={`recipe/${item._id}`} className="recipes__link">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="recipes__image"
+                    />
 
-                  <p className="recipes__title">{item.name}</p>
+                    <p className="recipes__title">{item.name}</p>
+                  </Link>
                 </article>
               );
             })}
@@ -136,13 +142,15 @@ const Home = () => {
             {data.food.chinese.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="recipes__image"
-                  />
+                  <Link to={`recipe/${item._id}`} className="recipes__link">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="recipes__image"
+                    />
 
-                  <p className="recipes__title">{item.name}</p>
+                    <p className="recipes__title">{item.name}</p>
+                  </Link>
                 </article>
               );
             })}
@@ -159,7 +167,9 @@ const Home = () => {
           <p className="public__subTitle">
             Publish your recipe in front of thousand of people for free .
           </p>
-          <button className="btn public__btn">Submit Recipe</button>
+          <Link to="/submit" className="btn public__btn">
+            Submit Recipe
+          </Link>
         </section>
       </main>
 

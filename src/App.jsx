@@ -10,7 +10,6 @@ import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
-import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./components/Profile/Profile";
@@ -22,14 +21,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route
-        path="about"
-        element={
-          <ProtectedRoute>
-            <About />
-          </ProtectedRoute>
-        }
-      />
+
       <Route
         path="profile"
         element={

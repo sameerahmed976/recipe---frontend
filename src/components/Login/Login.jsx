@@ -58,24 +58,30 @@ const Login = () => {
                     type="text"
                     name="email"
                     id="email"
+                    className="input"
                     placeholder="  "
                     value={email}
                     autoComplete="on"
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <label htmlFor="email">email</label>
+                  <label htmlFor="email" className="label">
+                    email
+                  </label>
                 </div>
                 <div className="form__control">
                   <input
                     type="password"
                     name="password"
                     id="password"
+                    className="input"
                     placeholder="  "
                     autoComplete="on"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <label htmlFor="password">password</label>
+                  <label htmlFor="password" className="label">
+                    password
+                  </label>
                 </div>
 
                 <Link to="forgotPassword" className="form__forget">
