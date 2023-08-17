@@ -1,7 +1,14 @@
+import { useRef } from "react";
 import { useState } from "react";
-// import FormikContainer from "./FormikContainer";
-
+import { toast } from "react-toastify";
+import { usePostARecipeMutation } from "../../redux/services/recipeService";
+// import { useNavigate } from "react-router-dom";
 const SubmitForm = () => {
+  // const navigate = useNavigate();
+
+  const [postARecipe] = usePostARecipeMutation();
+  const inputImage = useRef("");
+  const [source, setSource] = useState("");
   const [email, setEmail] = useState("");
   const [recipeName, setRecipeName] = useState("");
   const [recipeDescription, setRecipeDescription] = useState("");
@@ -32,7 +39,43 @@ const SubmitForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(Ingredients);
+    if (!recipeImage) {
+      throw new Error("Please upload photo");
+    }
+
+    const recipeObject = {
+      name: recipeName,
+      description: recipeDescription,
+      source: source,
+      email,
+      ingredients: Ingredients,
+      category: categories,
+      image: recipeImage,
+    };
+    postARecipe(recipeObject).then((data) => {
+      // console.log(data);
+      if (data.error) {
+        // console.log(
+        //   `* ~ file: SubmitForm.jsx:58 ~ postARecipe ~ data.error:`,
+        //   data.error
+        // );
+        // console.log(data.error.data.message);
+        toast.error(`Error : Something went wrong Please try again`);
+
+        // navigate("/login");
+      } else {
+        toast.success("recipe is submitted successfully");
+        setCategories("");
+        setEmail("");
+        setIngredients("");
+        setRecipeDescription("");
+        setRecipeImage("");
+        setRecipeName("");
+        setSource("");
+        // console.log(data);
+        // navigate("/");
+      }
+    });
   };
 
   const handleChange = (e, index) => {
@@ -41,6 +84,32 @@ const SubmitForm = () => {
     data[index][e.target.name] = e.target.value;
 
     setIngredients(data);
+  };
+
+  const uploadImage = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.set("image", inputImage.current.files[0]);
+    const response = await fetch(
+      "http://localhost:5000/api/v1/recipes/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+    // console.log(`* ~ file: SubmitForm.jsx:65 ~ uploadImage ~ data:`, data);
+    setRecipeImage(data.image.src);
+    // console.log(
+    //   `* ~ file: SubmitForm.jsx:53 ~ uploadImage ~ inputImage:`,
+    //   inputImage
+    // );
+    // console.log(
+    //   `* ~ file: SubmitForm.jsx:53 ~ uploadImage ~ inputImage.current.files[0]:`,
+    //   inputImage.current.files[0]
+    // );
   };
 
   return (
@@ -54,6 +123,7 @@ const SubmitForm = () => {
         <div className="submitForm__control">
           <label htmlFor="email">email</label>
           <input
+            required
             type="email"
             id="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -63,6 +133,7 @@ const SubmitForm = () => {
         <div className="submitForm__control">
           <label htmlFor="recipeName">Recipe Name</label>
           <input
+            required
             type="text"
             id="recipeName"
             name="recipeName"
@@ -81,14 +152,27 @@ const SubmitForm = () => {
             value={recipeDescription}
           ></textarea>
         </div>
+
         <div className="submitForm__control">
-          {/* <label htmlFor="Ingredients">Ingredients :</label>
+          <label htmlFor="Ingredients">Source :</label>
           <input
+            required
             type="text"
-            name="ingredients"
-            id="ingredients"
-            value={ingredient}
-            onChange={(e) => setIngredient(e.target.value)}
+            name="source"
+            id="source"
+            value={source}
+            onChange={(e) => setSource(e.target.value)}
+          />
+        </div>
+
+        <div className="submitForm__control">
+          {/* <label htmlFor="Ingredients">Source :</label>
+          <input required
+            type="text"
+            name="source"
+            id="source"
+            value={source}
+            onChange={(e) => setSource(e.target.value)}
           /> */}
 
           {/* <button
@@ -103,6 +187,7 @@ const SubmitForm = () => {
             return (
               <div key={index} className="submitForm__ingredients">
                 <input
+                  required
                   type="text"
                   id="Ingredient"
                   name="ingredient"
@@ -149,11 +234,13 @@ const SubmitForm = () => {
         <div className="submitForm__control">
           <label htmlFor="recipeImage">Recipe Image</label>
           <input
+            required
             type="file"
             name="recipeImage"
             id="recipeImage"
-            onChange={(e) => setRecipeImage(e.target.value)}
-            value={recipeImage}
+            onChange={(e) => uploadImage(e)}
+            // value={recipeImage}
+            ref={inputImage}
           />
         </div>
 

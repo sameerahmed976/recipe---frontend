@@ -70,7 +70,7 @@ const Home = () => {
           <h2 className="recipes__variety">Latest Recipes</h2>
 
           <section className="recipes__container">
-            {data.food.latest.map((item, index) => {
+            {data?.food?.latest.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
                   <Link to={`recipe/${item._id}`} className="recipes__link">
@@ -93,7 +93,7 @@ const Home = () => {
           <h2 className="recipes__variety">Thai Recipes</h2>
 
           <section className="recipes__container">
-            {data.food.thai.map((item, index) => {
+            {data?.food?.thai.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
                   <Link to={`recipe/${item._id}`} className="recipes__link">
@@ -116,7 +116,7 @@ const Home = () => {
           <h2 className="recipes__variety">American Recipes</h2>
 
           <section className="recipes__container">
-            {data.food.american.map((item, index) => {
+            {data?.food?.american.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
                   <Link to={`recipe/${item._id}`} className="recipes__link">
@@ -139,7 +139,7 @@ const Home = () => {
           <h2 className="recipes__variety">Chinese Recipes</h2>
 
           <section className="recipes__container">
-            {data.food.chinese.map((item, index) => {
+            {data?.food?.chinese.map((item, index) => {
               return (
                 <article className="recipes__card" key={index}>
                   <Link to={`recipe/${item._id}`} className="recipes__link">
