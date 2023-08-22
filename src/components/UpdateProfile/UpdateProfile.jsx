@@ -35,7 +35,7 @@ const UpdateProfile = () => {
         } else {
           // console.log(data);
           dispatch(getUser(data));
-          console.log(data);
+          // console.log(data);
           toast.success("user data updated successfully ");
           setEmail("");
           setName("");

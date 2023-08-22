@@ -50,7 +50,7 @@ const FormikContainer = () => {
   });
 
   const onSubmit = (values, onSubmitProps) => {
-    console.log(values);
+    // console.log(values);
 
     postRecipe(values).then((data) => {
       if (data.error) {

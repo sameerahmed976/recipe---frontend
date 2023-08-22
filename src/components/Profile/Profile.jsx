@@ -2,7 +2,7 @@ import { useGetMeQuery } from "../../redux/services/authService";
 
 const Profile = () => {
   const { data, isLoading } = useGetMeQuery();
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return (

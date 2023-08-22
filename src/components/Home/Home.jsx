@@ -3,7 +3,7 @@ import { useGetAllRecipesQuery } from "../../redux/services/recipeService";
 
 const Home = () => {
   const { data, isLoading } = useGetAllRecipesQuery();
-  console.log(data);
+  // console.log(data);
   // const { category, food, randomRecipes } = data;
 
   if (isLoading) {
