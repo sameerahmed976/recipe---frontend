@@ -4,16 +4,16 @@ export const recipeApi = createApi({
   reducerPath: "recipeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://reciepe-backend-te3w.onrender.com/api/v1/",
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
 
-    //   // If we have a token set in state, let's assume that we should be passing it.
-    //   if (token) {
-    //     headers.set("authorization", `Bearer ${token}`);
-    //   }
+      // If we have a token set in state, let's assume that we should be passing it.
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
 
-    //   return headers;
-    // },
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     // login: builder.mutation({
